@@ -1,0 +1,14 @@
+javascript:(async () => {
+    const curLink = location.href;
+    const regex = /^https:\/\/www.youtube.com\/+(?:channel|c|user)\/[^\/]+/;
+    const channelLink = curLink.match(regex);
+    if (channelLink != null) {
+        window.location.replace(channelLink + "/videos?sort=p");
+    } else {
+        const err = "[Sort a Youtube channel's videos by popular]" +
+            "\nMade by Vincentt#1705 (Discord)\n" +
+            "\nERROR: Make sure to use on a Youtube channel page!";
+        alert(err);
+        throw new Error(err);
+    }
+})()
